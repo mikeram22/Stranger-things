@@ -1,0 +1,290 @@
+/* Variables */
+
+$Fuente-titulo: monospace;
+$Fuente-parrafo: impact;
+$background-body: rgb(14, 9, 58);
+$color-text: rgb(134, 131, 131);
+$color-negro: black;
+$color-blanco: white;
+
+/* Aspectos generales */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: $background-body;
+}
+
+/* Mixins */
+
+/* pagina principal */
+
+/* Barra navegadora */
+
+@mixin barra-nav {
+
+  .nav__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100vw;
+    height: auto;
+    background: linear-gradient(370deg, black 35%, rgb(10,2,51) 75%);
+   box-shadow: 10px 10px 20px black;
+  
+    &--logo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      justify-self: center;
+    }
+  
+    &--menu {
+      place-self: center;
+      justify-self: end;
+      list-style: none;
+      grid-column: 2 / 4;
+      margin-right: 100px;
+    }
+  
+    li {
+      display: inline;
+      padding-left: 80px;
+      font-size: 2.5rem;
+      font-family: $Fuente-parrafo;  
+    }
+  
+    a {
+      text-decoration: none;
+      color: $color-text;
+    }
+  
+    a:hover {
+      color: $color-blanco;
+      transform: translate(-12px, -12px);
+    }
+  }
+  
+  @include query-barra-navegadora;
+}
+
+/* Contenedor principal */
+
+@mixin container {
+  display: grid;
+  grid-template-columns: repeat(3, 450px);
+  grid-auto-rows: repeat(4, 500px);
+  gap: 40px;
+  place-content: center;
+  margin-top: 50px;
+}
+
+/* imagen principal */
+
+@mixin picture-1 {
+  display: flex;
+    
+  img {
+    border-radius: 20px;
+    box-shadow: 15px 15px 15px black;
+    width: 100%;
+    height: 100%;
+  }
+
+  p {
+    position: absolute;
+    color: $color-blanco;
+    text-align: center;    
+    place-self: center;
+    font-family: $Fuente-parrafo;
+    font-size: 4.5rem;
+    margin: -900px 0 0 120px;
+    text-shadow: 15px 15px 40px white;
+    width: 680px;
+    padding: 0;
+
+    a {
+      text-decoration: none;
+      color: $color-text;
+    }
+
+    a:hover {
+      color: $color-blanco;
+    }
+  }
+}
+
+/* contenedor de noticias destacadas */
+
+@mixin list {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  border: 2px solid black;
+  box-shadow: 15px 15px 15px black;
+  border-radius: 20px;
+
+  .section__list--p {
+    font-size: 3.5rem;
+    box-shadow: none;
+  }
+
+  p {
+    color: $color-blanco;
+    text-align: center;    
+    place-self: center;
+    font-family: $Fuente-parrafo;
+    font-size: 2.5rem;
+    box-shadow: 15px 15px 15px black;
+
+    a {
+      text-decoration: none;
+      color: $color-text;
+    
+    }
+
+    a:hover {
+      color: $color-blanco;
+    }
+  }
+}
+
+/* imagenes */
+
+@mixin img {
+  display: flex;
+
+  img {
+    border-radius: 20px;
+    box-shadow: 15px 15px 15px black;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* imagen número 2 */
+
+@mixin picture-2 {
+  p {
+    position: absolute;
+    color: $color-blanco;
+    text-align: center;    
+    place-self: center;
+    font-family: $Fuente-parrafo;
+    font-size: 2rem;
+    margin: -430px 100px 0 20px;
+    text-shadow: 5px 5px 20px white;
+    width: 400px;
+
+    a {
+      text-decoration: none;
+      color: $color-text;
+    }
+
+    a:hover {
+      color: $color-blanco;
+    }
+  }
+
+  @media (max-width:1500px) {
+    grid-area: 3 / 1 / 4 / 2;
+  
+    p {
+      position: absolute;
+      color: $color-blanco;
+      text-align: center;    
+      place-self: center;
+      font-family: $Fuente-parrafo;
+      font-size: 4.5rem;
+      margin: -900px 0 0 120px;
+      text-shadow: 15px 15px 40px white;
+      width: 680px;
+      padding: 0;
+    }
+  }
+}
+
+/* parrafo de la imagen número 3 */
+
+@mixin picture-3 {
+  p {
+    position: absolute;
+    color: $color-blanco;
+    text-align: center;    
+    place-self: center;
+    font-family: $Fuente-parrafo;
+    font-size: 2rem;
+    margin: -380px 0 0 25px;
+    text-shadow: 5px 5px 20px black;
+    width: 400px;
+
+    a {
+      text-decoration: none;
+      color: $color-text;
+    }
+
+    a:hover {
+      color: $color-blanco;
+    }
+  }
+
+  @media (max-width:1500px) {
+    grid-area: 3 / 2 / 4 / 3;
+  
+    p {
+      position: absolute;
+      color: $color-blanco;
+      text-align: center;    
+      place-self: center;
+      font-family: $Fuente-parrafo;
+      font-size: 4.5rem;
+      margin: -900px 0 0 120px;
+      text-shadow: 15px 15px 40px white;
+      width: 680px;
+      padding: 0;
+    }
+  }
+}
+
+/* Parrafos de las otras 4 imagenes */
+
+@mixin picture {
+  p {
+    position: absolute;
+    color: $color-blanco;
+    text-align: center;    
+    place-self: center;
+    font-family: $Fuente-parrafo;
+    font-size: 2rem;
+    margin: -250px 0 0 25px;
+    text-shadow: 5px 5px 20px black;
+    width: 400px;
+
+    a {
+      text-decoration: none;
+      color: $color-text;
+    }
+
+    a:hover {
+      color: $color-blanco;
+    }
+  }
+}
+
+/* temporadas */
+
+@mixin img-temporadas {
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    box-shadow: 15px 15px 15px black;
+  }
+}
